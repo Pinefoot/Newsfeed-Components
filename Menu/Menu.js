@@ -33,30 +33,35 @@ let menuItems = [
   Step 6: add the menu component to the DOM.
   
 */
-function menuCreator(menuItems){
+function menuCreator(array){
   //mixin up some variable elements!
   const navatron = document.createElement('div');
   const navList = document.createElement('ul');
-  const students = document.createElement('li');
-  const faculty = document.createElement('li');
-  const whatsNew = document.createElement('li');
-  const techTrends = document.createElement('li');
-  const music = document.createElement('li');
-  const logOut = document.createElement('li');
+
+  //list elements!
+  array.forEach(el =>{
+    let navListItem = document.createElement('li');
+    navListItem.textContent = el;
+    navList.append(navListItem);
+  })
 
   //structure up that class 
   navatron.classList.add('menu');
 
+
   //append that stuff!
   navatron.append(navList);
-  navatron.append(students);
-  navatron.append(faculty);
-  navatron.append(whatsNew);
-  navatron.append(techTrends);
-  navatron.append(music);
-  navatron.append(logOut);
-
   
+
+
+  //click event!
+  let navOpenator = document.querySelector('.menu-button');
+  navOpenator.addEventListener('click', event =>{
+    navatron.classList.toggle('menu--open');
+  })
+    
+  
+
 
 
 
@@ -64,3 +69,8 @@ function menuCreator(menuItems){
 
   return navatron;
 }
+
+// the other stuff call that function
+let menuSelector = document.querySelector(".header")
+menuSelector.append(menuCreator(menuItems));
+
