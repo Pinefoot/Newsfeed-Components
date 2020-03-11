@@ -152,6 +152,7 @@ function cardMaker (title, date, firstParagraph, secondParagraph, thirdParagraph
   const articleParagC1 = document.createElement('p')
   const articleParagC2 = document.createElement('p');
   const articleParagC3 = document.createElement('p');
+  const articleSpan = document.createElement('span');
   const articleButton = document.createElement('button');
 
   //classes
@@ -166,6 +167,7 @@ function cardMaker (title, date, firstParagraph, secondParagraph, thirdParagraph
   article.append(articleParagC2);
   article.append(articleParagC3);
   article.append(articleButton);
+  article.append(articleSpan);
 
 //set that text content!
 articleTitle.textContent = title;
@@ -174,6 +176,11 @@ articleParagC1.textContent = firstParagraph
 articleParagC2.textContent = secondParagraph
 articleParagC3.textContent = thirdParagraph
 articleButton.textContent = 'expand';
+
+//give those buttons some dang actions!
+articleButton.addEventListener('click', event =>{
+  article.classList.toggle('article-open')
+})
 
   //return it
   return article;
@@ -185,5 +192,5 @@ data.map(el => {
   articleDiv.append(cardMaker(el.title, el.date, el.firstParagraph, el.secondParagraph, el.thirdParagraph));
 })
 
-//now to give it the actions!
+
 
