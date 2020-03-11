@@ -112,3 +112,66 @@ const data = [
   Step 5: Add a new article to the array. Make sure it is in the same format as the others. Refresh the page to see the new article.
 
 */
+//for reference:
+// function cardCreator(data) {
+//   const card = document.createElement("div");
+//   card.classList.add("card");
+//     const header = document.createElement("h2");
+//     header.textContent = data.title;
+//     card.appendChild(header);
+//     const subtitle = document.createElement("h3");
+//     subtitle.classList.add("subtitle");
+//     subtitle.textContent = data.subtitle;
+//     card.appendChild(subtitle);
+//     const description = document.createElement("div");
+//     description.classList.add("desc");
+//     description.textContent = data.content;
+//     card.appendChild(description);
+//     const image = document.createElement("img");
+//     image.src = data.imgsrc;
+//     image.alt = "";
+//     card.appendChild(image);
+//   return card;
+// }
+
+//panelTitle.textContent = title;
+// panelSubTitle.textContent = subtitle;
+// panelContent.textContent = content;
+// panelImg.setAttribute('src', img);
+// panel.append(panelTitle);
+// panel.append(panelSubTitle);
+// panel.append(panelContent);
+// panel.append(panelImg);
+//reference over
+
+function cardMaker (title, date, firstParagraph, secondParagraph, thirdParagraph){
+  //elements
+  const article = document.createElement('div');
+  const articleTitle = document.createElement('h2');
+  const articleParagDate = document.createElement('p');
+  const articleParagC1 = document.createElement('p')
+  const articleParagC2 = document.createElement('p');
+  const articleButton = document.createElement('button');
+
+  //classes
+  article.classList.add('article');
+  articleParagDate.classList.add('date');
+  articleButton.classList.add ('expandButton')
+
+  //append some stuff.
+  article.append(articleTitle);
+  article.append(articleParagDate);
+  article.append(articleParagC1);
+  article.append(articleParagC2);
+  article.append(articleButton);
+
+
+
+  //return it
+  return article;
+}
+
+//foreach function of dataset
+data.forEach(el => {
+  document.querySelector('.article').append(cardMaker(el.title, el.date, el.firstParagraph, el.secondParagraph, el.thirdParagraph))
+})
