@@ -85,6 +85,15 @@ const data = [
     thirdParagraph: `Hodor hodor - hodor... Hodor hodor hodor hodor. Hodor. Hodor! Hodor hodor, hodor hodor hodor hodor hodor; hodor hodor? Hodor!
           Hodor hodor, HODOR hodor, hodor hodor?! Hodor! Hodor hodor, HODOR hodor, hodor hodor, hodor, hodor hodor. Hodor, hodor.
           Hodor. Hodor, hodor, hodor. Hodor hodor... Hodor hodor hodor?! Hodor, hodor... Hodor hodor HODOR hodor, hodor hodor. Hodor.`
+     
+  },
+  {
+    title: 'James',
+    date: 'March 11, 2020',
+    firstParagraph:  `something something something something something something nothing...something. something something something.`,
+    secondParagraph: `more nonsense. This is nonsense. Hello, welcome to the world of nonsense, where nothing matters, and everything is made up by some madman behind a computer who has a lot of time on his hands to type out silly things into a text box. really though he just is spitting off the top of his head based on what he is doing. right now I am hitting the keys to type out letters specficially right now I am hitting the key a the key b the key c the key d. and so on and so forth. cheers and good bye`,
+    thirdParagraph: `can't think of anythign else to say here. bye bye.`
+  
   }
 ];
 
