@@ -151,27 +151,39 @@ function cardMaker (title, date, firstParagraph, secondParagraph, thirdParagraph
   const articleParagDate = document.createElement('p');
   const articleParagC1 = document.createElement('p')
   const articleParagC2 = document.createElement('p');
+  const articleParagC3 = document.createElement('p');
   const articleButton = document.createElement('button');
 
   //classes
   article.classList.add('article');
   articleParagDate.classList.add('date');
-  articleButton.classList.add ('expandButton')
+  articleButton.classList.add ('expandButton');
 
-  //append some stuff.
+  //append that stuff.
   article.append(articleTitle);
   article.append(articleParagDate);
   article.append(articleParagC1);
   article.append(articleParagC2);
+  article.append(articleParagC3);
   article.append(articleButton);
 
-
+//set that text content!
+articleTitle.textContent = title;
+articleParagDate.textContent = date
+articleParagC1.textContent = firstParagraph
+articleParagC2.textContent = secondParagraph
+articleParagC3.textContent = thirdParagraph
+articleButton.textContent = 'expand';
 
   //return it
   return article;
 }
 
-//foreach function of dataset
-data.forEach(el => {
-  document.querySelector('.article').append(cardMaker(el.title, el.date, el.firstParagraph, el.secondParagraph, el.thirdParagraph))
+//foreach or map function of dataset
+const articleDiv = document.querySelector('.articles');
+data.map(el => {
+  articleDiv.append(cardMaker(el.title, el.date, el.firstParagraph, el.secondParagraph, el.thirdParagraph));
 })
+
+//now to give it the actions!
+
