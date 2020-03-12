@@ -33,3 +33,48 @@ let menuItems = [
   Step 6: add the menu component to the DOM.
   
 */
+function menuCreator(array){
+  //mixin up some variable elements!
+  const navatron = document.createElement('div');
+  const navList = document.createElement('ul');
+
+  //list elements!
+  array.forEach(el =>{
+    let navListItem = document.createElement('li');
+    navListItem.textContent = el;
+    navList.append(navListItem);
+  })
+
+  //structure up that class 
+  navatron.classList.add('menu');
+
+
+  //append that stuff!
+  navatron.append(navList);
+  
+
+
+  //click event!
+  let navOpenator = document.querySelector('.menu-button');
+  navOpenator.addEventListener('click', event =>{
+    navatron.classList.toggle('menu--open');
+  })
+    
+  
+
+
+
+
+
+
+  return navatron;
+}
+
+// the other stuff call that function
+let menuSelector = document.querySelector(".header")
+menuSelector.append(menuCreator(menuItems));
+
+
+//animations
+
+gsap.from('.menu', {duration: 2, x: -300, opacity: 0});

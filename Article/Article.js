@@ -85,6 +85,15 @@ const data = [
     thirdParagraph: `Hodor hodor - hodor... Hodor hodor hodor hodor. Hodor. Hodor! Hodor hodor, hodor hodor hodor hodor hodor; hodor hodor? Hodor!
           Hodor hodor, HODOR hodor, hodor hodor?! Hodor! Hodor hodor, HODOR hodor, hodor hodor, hodor, hodor hodor. Hodor, hodor.
           Hodor. Hodor, hodor, hodor. Hodor hodor... Hodor hodor hodor?! Hodor, hodor... Hodor hodor HODOR hodor, hodor hodor. Hodor.`
+     
+  },
+  {
+    title: 'James',
+    date: 'March 11, 2020',
+    firstParagraph:  `something something something something something something nothing...something. something something something.`,
+    secondParagraph: `more nonsense. This is nonsense. Hello, welcome to the world of nonsense, where nothing matters, and everything is made up by some madman behind a computer who has a lot of time on his hands to type out silly things into a text box. really though he just is spitting off the top of his head based on what he is doing. right now I am hitting the keys to type out letters specficially right now I am hitting the key a the key b the key c the key d. and so on and so forth. cheers and good bye`,
+    thirdParagraph: `can't think of anythign else to say here. bye bye.`
+  
   }
 ];
 
@@ -112,3 +121,85 @@ const data = [
   Step 5: Add a new article to the array. Make sure it is in the same format as the others. Refresh the page to see the new article.
 
 */
+//for reference:
+// function cardCreator(data) {
+//   const card = document.createElement("div");
+//   card.classList.add("card");
+//     const header = document.createElement("h2");
+//     header.textContent = data.title;
+//     card.appendChild(header);
+//     const subtitle = document.createElement("h3");
+//     subtitle.classList.add("subtitle");
+//     subtitle.textContent = data.subtitle;
+//     card.appendChild(subtitle);
+//     const description = document.createElement("div");
+//     description.classList.add("desc");
+//     description.textContent = data.content;
+//     card.appendChild(description);
+//     const image = document.createElement("img");
+//     image.src = data.imgsrc;
+//     image.alt = "";
+//     card.appendChild(image);
+//   return card;
+// }
+
+//panelTitle.textContent = title;
+// panelSubTitle.textContent = subtitle;
+// panelContent.textContent = content;
+// panelImg.setAttribute('src', img);
+// panel.append(panelTitle);
+// panel.append(panelSubTitle);
+// panel.append(panelContent);
+// panel.append(panelImg);
+//reference over
+
+function cardMaker (title, date, firstParagraph, secondParagraph, thirdParagraph){
+  //elements
+  const article = document.createElement('div');
+  const articleTitle = document.createElement('h2');
+  const articleParagDate = document.createElement('p');
+  const articleParagC1 = document.createElement('p')
+  const articleParagC2 = document.createElement('p');
+  const articleParagC3 = document.createElement('p');
+  const articleSpan = document.createElement('span');
+  const articleButton = document.createElement('button');
+
+  //classes
+  article.classList.add('article');
+  articleParagDate.classList.add('date');
+  articleButton.classList.add ('expandButton');
+
+  //append that stuff.
+  article.append(articleTitle);
+  article.append(articleParagDate);
+  article.append(articleParagC1);
+  article.append(articleParagC2);
+  article.append(articleParagC3);
+  article.append(articleButton);
+  article.append(articleSpan);
+
+//set that text content!
+articleTitle.textContent = title;
+articleParagDate.textContent = date
+articleParagC1.textContent = firstParagraph
+articleParagC2.textContent = secondParagraph
+articleParagC3.textContent = thirdParagraph
+articleButton.textContent = 'expand';
+
+//give those buttons some dang actions!
+articleButton.addEventListener('click', event =>{
+  article.classList.toggle('article-open')
+})
+
+  //return it
+  return article;
+}
+
+//foreach or map function of dataset
+const articleDiv = document.querySelector('.articles');
+data.map(el => {
+  articleDiv.append(cardMaker(el.title, el.date, el.firstParagraph, el.secondParagraph, el.thirdParagraph));
+})
+
+
+
