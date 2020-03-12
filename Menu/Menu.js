@@ -74,3 +74,7 @@ function menuCreator(array){
 let menuSelector = document.querySelector(".header")
 menuSelector.append(menuCreator(menuItems));
 
+
+//animations
+
+gsap.from('.menu', {duration: 2, x: -300, opacity: 0});
